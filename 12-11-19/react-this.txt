@@ -1,0 +1,53 @@
+
+1. Why do we have to import react in functional components when all we do is  
+   return a function. Is it not same as the old vanilla JavaScript?
+2. What do you understand about the this keyword in JavaScript.
+
+
+			SOLUTIONS
+
+
+1.  There is need we import react in functional components becuase during build,
+	the code snippet is transformed using the React that was imported, else undefined error is called.
+
+	Example is a snippet below:
+
+	function Benz(props) {
+		return <p>If it's not {props.name}, it can never be {props.name}! </p>
+	}
+
+				||
+				||   TRANSFORMED INTO SPIPPET BELOW
+				\/
+
+	function Benz(props) {
+  		return React.createElement(
+	    	"p",
+	    	null,
+	    	"If it's not",
+	    	props.name,
+	    	"it can never be",
+	    	props.name
+  		);
+	}
+
+2.  In web browsers, the window object is also the global object:
+	console.log(this === window); // true
+
+	stutrn = 'SGA';
+	console.log(window.stutrn); // SGA
+
+	this.read = "Stutern";
+	console.log(window.read)  // "Stutern"
+	console.log(read) // "Stutern"
+
+	In the following example, when obj.fn() is invoked, inside the function this is bound to the obj object.
+
+	var obj = {
+	  props: 'Stutern,
+	  fn: function() {
+	    return this.props;
+	  }
+	};
+
+console.log(obj.fn()); // Stutern
