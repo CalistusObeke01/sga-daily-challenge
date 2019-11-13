@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './StatefulFunctionComponent.css';
 
 function StatefulFunctionalComponent () {
-    const [timer, setTimer] = useState(null)
+    // const [timer, setTimer] = useState(null)
     const [visible, setVisible] = useState(false)
     
     useEffect(() => {
         setTimeout(() => {
           setVisible(false)
         }, 4000);
-        setTimer(null)
+        // setTimer(null)
         setVisible(true)
     }, []);
     
@@ -18,7 +18,7 @@ function StatefulFunctionalComponent () {
     }
 
     return (  
-    <div style={styles} className="style-content">I will hide in 4 seconds.</div>
+        <div style={styles} className="style-content">I will hide in 4 seconds.</div>
     )
 }
 
